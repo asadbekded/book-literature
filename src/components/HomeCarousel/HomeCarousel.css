@@ -1,0 +1,16 @@
+.line-indicator {
+    bottom: -14px;
+    text-align: left;
+}
+.line-indicator li {
+    width: 57px;
+    height: 3px;
+    border-radius: 10px ;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.line-indicator li:hover {
+    background-color: #fff;
+}
+.line-indicator li.slick-active {
+    background-color: #fff;
+}
