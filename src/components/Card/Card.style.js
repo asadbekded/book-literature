@@ -15,7 +15,7 @@ position: relative;
   width: 100%;
   max-width: 295px;
   height: 455px;
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.color};
   border-radius: 22px;
   color: #333;
   &::before{
@@ -57,7 +57,7 @@ export const StyledTitle = styled.h3`
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  color: #333;
+  color:  ${(props) => props.color};
   margin: 0px 0px 6px 0px;
 `;
 
@@ -65,6 +65,6 @@ export const StyledText = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: rgba(0, 0, 0, 0.6);
+  color: ${(props) => props.color};
   margin: 0px;
 `;

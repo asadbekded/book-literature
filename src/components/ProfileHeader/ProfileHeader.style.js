@@ -15,20 +15,20 @@ export const ProfileList = styled.ul`
 export const ProfileLink = styled(NavLink)`
   width: 100%;
   max-width: 400px;
-  background-color: #f3f6f9;
+  background-color: ${(props) => props.color};
   border-radius: 4px;
   text-decoration: none;
   padding: 23px 0px 23px 23px;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
-  color: #464E5F;
+  color: ${(props) => props.hover};
   &:hover {
-    color: #464E5F;
+    color: ${(props) => props.hover};
   }
   &.active {
-    color: #152540;
-    background-color: #dde6f5;
+    color: ${(props) => props.active};
+    background-color: ${(props) => props.just};
     border-radius: 4px;
   }
   &.active span {

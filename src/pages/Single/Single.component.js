@@ -30,6 +30,7 @@ import Slider from "react-slick";
 
 export const Single = () => {
   const { id } = useParams();
+  const theme = useSelector((state) => state.mode.theme);
   const token = useSelector((state) => state.token.token);
   const [data, setData] = useState([]);
   const [book, setBook] = useState([]);
@@ -89,24 +90,25 @@ export const Single = () => {
           <StyledTitle>
             {data.first_name} {data.last_name}
           </StyledTitle>
-          <StyledText>{data.bio}</StyledText>
+          <StyledText color={theme ? 'rgba(255, 255, 255, 0.8)' : 'rgba(13, 13, 13, 0.8)'} >{data.bio}</StyledText>
           <DataContent>
             <DataBox>
-              <DataText>Tavallud sanasi</DataText>
+              <DataText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >Tavallud sanasi</DataText>
               <DataTitle>{data.date_of_birth}</DataTitle>
-              <DataText>{data.country}</DataText>
+              <DataText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >{data.country}</DataText>
             </DataBox>
             <DataBox>
-              <DataText>Vafot etgan sana</DataText>
+              <DataText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >Vafot etgan sana</DataText>
               <DataTitle>{data.date_of_death}</DataTitle>
-              <DataText>{data.country}</DataText>
+              <DataText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >{data.country}</DataText>
             </DataBox>
           </DataContent>
         </StyledBox>
       </StyledContent>
+
       <CarBox>
         <CarTitle>Asarlari</CarTitle>
-        <CarLink to='/books' >Barchasini ko'rish</CarLink>
+        <CarLink color={theme ? '#fff' : '#0d0d0d'} to='/books' >Barchasini ko'rish</CarLink>
       </CarBox>
 
 
@@ -122,8 +124,8 @@ export const Single = () => {
                   height={280}
                 />
                 <ListBox>
-                  <ListTitle>{el.title}</ListTitle>
-                  <ListText>
+                  <ListTitle color={theme ? '#C9AC8C' : '#000'} >{el.title}</ListTitle>
+                  <ListText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'} >
                     {data.first_name} {data.last_name}
                   </ListText>
                 </ListBox>

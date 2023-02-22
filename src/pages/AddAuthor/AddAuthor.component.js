@@ -20,10 +20,11 @@ import AddIcon from "../../assets/images/add-icon.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {FaBackward} from 'react-icons/fa';
+import { FaBackward } from "react-icons/fa";
 
 export const AddAuthor = () => {
   const token = useSelector((state) => state.token.token);
+  const theme = useSelector((state) => state.mode.theme);
   const navigate = useNavigate();
 
   const firstRef = useRef();
@@ -56,8 +57,8 @@ export const AddAuthor = () => {
       headers: { Authorization: token, "Content-Type": "multipart/form-data" },
     })
       .then((res) => {
-        if(res.status === 201){
-          console.log(res)
+        if (res.status === 201) {
+          console.log(res);
         }
       })
       .catch((err) => console.log(err));
@@ -66,8 +67,10 @@ export const AddAuthor = () => {
   return (
     <>
       <AuthorForm onSubmit={(evt) => handleAuthor(evt)}>
-        <FormImageContent>
-          <FormImageBox>
+        <FormImageContent
+          color={theme ? "#191919" : "rgba(243, 243, 243, 0.93)"}
+        >
+          <FormImageBox color={theme ? "#4D4D4D" : "#f8f8f8"}>
             <FormImageInp
               type="file"
               name="file"
@@ -82,17 +85,53 @@ export const AddAuthor = () => {
 
         <AuthorBox>
           <div className="d-flex align-items-center justify-content-between">
-          <AuthorTitle>Add author</AuthorTitle>
-          <StyledBtn onClick={() => navigate("/")} type='button'>
-            <FaBackward color="white" size='20px'/>
-          </StyledBtn>
+            <AuthorTitle color={theme ? "#fff" : "#000"}>
+              Add author
+            </AuthorTitle>
+            <StyledBtn onClick={() => navigate(-1)} type="button">
+              <FaBackward color="white" size="20px" />
+            </StyledBtn>
           </div>
-          <AuthorInp ref={firstRef} type="text" placeholder="First name" />
-          <AuthorInp ref={lastRef} type="text" placeholder="Last name" />
-          <AuthorInp ref={birthRef} type="text" placeholder="Date of birth" />
-          <AuthorInp ref={deathRef} type="text" placeholder="Date of death" />
-          <AuthorInp ref={countryRef} type="text" placeholder="Country" />
-          <AuthorSel ref={genreRef}>
+          <AuthorInp
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={firstRef}
+            type="text"
+            placeholder="First name"
+          />
+          <AuthorInp
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={lastRef}
+            type="text"
+            placeholder="Last name"
+          />
+          <AuthorInp
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={birthRef}
+            type="text"
+            placeholder="Date of birth"
+          />
+          <AuthorInp
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={deathRef}
+            type="text"
+            placeholder="Date of death"
+          />
+          <AuthorInp
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={countryRef}
+            type="text"
+            placeholder="Country"
+          />
+          <AuthorSel
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
+            ref={genreRef}
+          >
             <option value="">Genre</option>
             <option value="1">Temuriylar davri </option>
             <option value="2">Jadid adabiyoti </option>
@@ -101,6 +140,8 @@ export const AddAuthor = () => {
           </AuthorSel>
 
           <AuthorTextarea
+            just={theme ? "#FFF" : "#AAA"}
+            color={theme ? "#1B1B1B" : "#FFFFFF"}
             ref={bioRef}
             cols="30"
             placeholder="Bio"

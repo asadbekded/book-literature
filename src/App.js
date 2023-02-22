@@ -21,6 +21,7 @@ function App() {
 
   const token = useSelector((state) => state.token.token);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.mode.theme);
 
   useEffect(() => {
 		axios
@@ -44,6 +45,10 @@ function App() {
     dispatch(tokenAction(localStorage.getItem("token")));
     dispatch(userAction(JSON.parse(localStorage.getItem("user"))));
   }, [dispatch]);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme ? "#191919" : "#fff";
+  }, [theme]);
 
   if(token) {
     return (

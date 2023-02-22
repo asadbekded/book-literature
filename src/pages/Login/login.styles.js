@@ -32,7 +32,7 @@ export const RegisterTitle = styled.h2`
   font-weight: 900;
   font-size: 36px;
   line-height: 51px;
-  color: #000000;
+  color:  ${(props) => props.color};
   margin: 0px 0px 10px 0px;
 `;
 export const RegisterText = styled.p`
@@ -40,7 +40,7 @@ export const RegisterText = styled.p`
   font-size: 13px;
   line-height: 15px;
   margin: 0px 0px 21px 0px;
-  color: #000000;
+  color:  ${(props) => props.color};
 `;
 export const RegisterForm = styled.form`
   text-align: center;

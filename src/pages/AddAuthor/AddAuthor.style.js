@@ -9,14 +9,14 @@ export const FormImageContent = styled.div`
   width: 100%;
   max-width: 576px;
   padding: 99px 130px;
-  background: rgba(243, 243, 243, 0.93);
+  background-color: ${(props) => props.color};
 `;
 
 export const FormImageBox = styled.div`
   width: 100%;
   max-width: 315px;
   outline: none;
-  background-color: #f8f8f8;
+  background-color: ${(props) => props.color};
   border: 1px dashed rgba(0, 0, 0, 0.3);
   border-radius: 17px;
 `;
@@ -59,7 +59,7 @@ export const AuthorTitle = styled.h2`
 font-weight: 600;
 font-size: 32px;
 line-height: 48px;
-color: #000000;
+color: ${(props) => props.color};
 margin: 0px;
 margin-bottom: 12px;
 `
@@ -69,13 +69,13 @@ display: block;
 width: 100%;
 max-width: 330px;
 padding: 13px 0px 12px 22px;
-background-color: #FFFFFF;
+background-color: ${(props) => props.color};
 border: 1px solid #B4B4BB;
 border-radius: 10px;
 font-weight: 400;
 font-size: 14px;
 line-height: 21px;
-color: #AAAAAA;
+color: ${(props) => props.just};
 outline: none;
 margin-bottom: 16px;
 `
@@ -84,13 +84,13 @@ display: block;
 width: 100%;
 max-width: 330px;
 padding: 13px 0px 12px 22px;
-background-color: #FFFFFF;
+background-color: ${(props) => props.color};
 border: 1px solid #B4B4BB;
 border-radius: 10px;
 font-weight: 400;
 font-size: 14px;
 line-height: 21px;
-color: #AAAAAA;
+color: ${(props) => props.just};
 outline: none;
 margin-bottom: 16px;
 `
@@ -100,13 +100,13 @@ width: 100%;
 max-width: 330px;
 height: 82px;
 padding: 13px 0px 0px 22px;
-background-color: #FFFFFF;
+background-color: ${(props) => props.color};
 border: 1px solid #B4B4BB;
 border-radius: 10px;
 font-weight: 400;
 font-size: 14px;
 line-height: 21px;
-color: #AAAAAA;
+color: ${(props) => props.just};
 outline: none;
 margin-bottom: 16px;
 &::-webkit-scrollbar {

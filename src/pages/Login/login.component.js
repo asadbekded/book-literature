@@ -18,12 +18,13 @@ import { InputAdornment, Stack, TextField } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { tokenAction } from "../../redux/token/tokenAction";
 
 export const Login = () => {
   const [inputType, setInputType] = useState(false);
+  const theme = useSelector((state) => state.mode.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -55,8 +56,8 @@ export const Login = () => {
       </FormBoxImg>
 
       <FormBox>
-        <RegisterTitle>Sign in</RegisterTitle>
-        <RegisterText>
+        <RegisterTitle color={theme ? '#fff' : '#000'} >Sign in</RegisterTitle>
+        <RegisterText color={theme ? '#fff' : '#000'}>
           Already have an account? <RegisterNav to="/register">Sign up</RegisterNav>
         </RegisterText>
         <RegisterForm

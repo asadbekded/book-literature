@@ -7,61 +7,16 @@ export const ProfileContent = styled.div`
 
 export const ProfileForm = styled.form`
 width: 100%;
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
+max-width: 710px;
+margin: 0px auto;
 `;
 
-export const ImageContent = styled.div``;
-
-export const ProfileImageBox = styled.div`
-  position: relative;
-  width: 100%;
-  max-width: 175px;
-  height: 175px;
-  cursor: pointer;
-  border-radius: 50%;
-`;
-
-export const StyledImg = styled.img`
-  width: 100%;
-  max-width: 175px;
-  height: 175px;
-  border-radius: 50%;
-  cursor: pointer;
-`
-
-export const FormImageInp = styled.input`
-  position: absolute;
-  width: 175px;
-  height: 175px;
-  left: 0px;
-  opacity: 0000;
-  border-radius: 50%;
-  cursor: pointer;
-`;
-
-export const ImageInpBox = styled.div`
-  position: absolute;
-  padding: 10px 8px 10px 8px;
-  background-color: ${(props) => props.color};
-  border-radius: 8px;
-  bottom: -15px;
-  right: 0px;
-  cursor: pointer;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4));
-`;
-
-export const FormBox = styled.div`
-width: 100%;
-max-width: 700px;
-`;
 
 export const FormTitle = styled.h2`
 font-weight: 500;
 font-size: 18px;
 line-height: 27px;
-color: ${(props) => props.color};
+color:  ${(props) => props.color};
 margin: 0px;
 margin-bottom: 20px;
 `;
@@ -74,11 +29,11 @@ export const FormLabel = styled.label`
 font-weight: 400;
 font-size: 13px;
 line-height: 20px;
-color: ${(props) => props.color};
+color:  ${(props) => props.color};
 margin-bottom: 7px;
 `;
 
-export const FormInp = styled.input`
+export const FormSel = styled.select`
 display: block;
 width: 100%;
 max-width: 700px;

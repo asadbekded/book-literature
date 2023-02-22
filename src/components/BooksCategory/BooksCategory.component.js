@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BooksCard } from "../BooksCard/BooksCard.component";
 import { CategoryTitle, StyledList } from "./BooksCategory.Style";
+import { useSelector } from "react-redux";
 
 export const BooksCategory = ({ categoryCard, setCategoryCard }) => {
   const [product, setProduct] = useState([]);
-  // const [categoryCard, setCategoryCard] = useState([]);
+  const theme = useSelector((state) => state.mode.theme);
   const [value, setValue] = React.useState(1);
 
   useEffect(() => {
@@ -65,7 +66,7 @@ export const BooksCategory = ({ categoryCard, setCategoryCard }) => {
           >
             {product.map((el) => (
               <Tab
-                sx={{ color: "rgba(13, 13, 13, 0.6)" }}
+                sx={theme ? { color: "#424242" } : { color: "rgba(13, 13, 13, 0.6)" }}
                 key={el.id}
                 value={el.id}
                 tabIndex={el.id}

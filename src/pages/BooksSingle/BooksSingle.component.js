@@ -10,8 +10,11 @@ import { CarBox, CarLink, CarTitle, DescriptionBox, DescriptionSpan, Description
 export const BooksSingle = () => {
   const { id } = useParams();
   const [ data, setData ] = useState([]);
+  const [ auth, setAuth ] = useState([]);
   const [ book, setBook ] = useState([]);
   const token = useSelector((state) => state.token.token);
+  const theme = useSelector((state) => state.mode.theme);
+
 
   const settings = {
     infinite: true,
@@ -55,6 +58,20 @@ export const BooksSingle = () => {
       .catch((err) => console.log(err));
   }, [data, token]);
 
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:5000/author/authorId/" + data.author_id,
+      headers: { Authorization: token, "Content-Type": "multipart/form-data" },
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          setAuth(res.data);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [data, token]);
+
   return (
     <>
       <Header/>
@@ -68,27 +85,30 @@ export const BooksSingle = () => {
         <StyledBox>
           <StyledTitle>{data.title}</StyledTitle>
           <PageBox>
-            <PageTitle>Sahifalar soni:</PageTitle>
-            <PageStr>{data.page}</PageStr>
+            <PageTitle color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >Sahifalar soni:</PageTitle>
+            <PageStr color={theme ? '#fff' : '#0D0D0D'}  >{data.page}</PageStr>
           </PageBox>
           <PageBox>
-            <PageTitle>Chop etilgan:</PageTitle>
-            <PageStr>{data.year} years</PageStr>
+            <PageTitle color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >Chop etilgan:</PageTitle>
+            <PageStr color={theme ? '#fff' : '#0D0D0D'}  >{data.year} years</PageStr>
           </PageBox>
           <PageBox>
-            <PageTitle>Kitob narxi:</PageTitle>
-            <PageStr>{data.price}$</PageStr>
+            <PageTitle color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(13, 13, 13, 0.6)'} >Kitob narxi:</PageTitle>
+            <PageStr color={theme ? '#fff' : '#0D0D0D'}  >{data.price}$</PageStr>
           </PageBox>
           <DescriptionBox>
             <DescriptionTitle>To'liq malumot</DescriptionTitle>
             <DescriptionSpan></DescriptionSpan>
           </DescriptionBox>
-          <DescriptionText>{data.description}</DescriptionText>
+          <DescriptionText color={theme ? 'rgba(255, 255, 255, 0.8)' : 'rgba(13, 13, 13, 0.8)'} >
+            {data.description}
+          </DescriptionText>
         </StyledBox>
       </StyledContent>
+
       <CarBox>
         <CarTitle>Asarlari</CarTitle>
-        <CarLink to='/books' >Barchasini ko'rish</CarLink>
+        <CarLink color={theme ? '#fff' : '#0d0d0d'} to='/books' >Barchasini ko'rish</CarLink>
       </CarBox>
 
       <StyledList>
@@ -103,9 +123,9 @@ export const BooksSingle = () => {
                   height={280}
                 />
                 <ListBox>
-                  <ListTitle>{el.title}</ListTitle>
-                  <ListText>
-                    {data.first_name} {data.last_name}
+                  <ListTitle  color={theme ? '#C9AC8C' : '#000'} >{el.title}</ListTitle>
+                  <ListText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'} >
+                    {auth.first_name} {auth.last_name}
                   </ListText>
                 </ListBox>
               </StyledItem>

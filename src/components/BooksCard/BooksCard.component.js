@@ -17,6 +17,7 @@ export const BooksCard = ({ el }) => {
     const [auth, setAuth] = useState([]);
 
   const token = useSelector((state) => state.token.token);
+  const theme = useSelector((state) => state.mode.theme);
 
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export const BooksCard = ({ el }) => {
 
   return (
     <StyledLink key={el.id} to={`/books/${el.id}`}>
-      <StyledItem image={BeforeBottom}>
+      <StyledItem color={theme ? '#333' : '#f5f5f5'} image={BeforeBottom}>
         <StyledImg
           src={`http://localhost:5000/${el.image}`}
           alt="img"
@@ -44,8 +45,8 @@ export const BooksCard = ({ el }) => {
           height={224}
         />
         <StyledBox image={Before}>
-          <StyledTitle>{el.title}</StyledTitle>
-          <StyledText>
+          <StyledTitle color={theme ? '#C9AC8C' : '#333'} >{el.title}</StyledTitle>
+          <StyledText color={theme ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'} >
             {auth.first_name} {auth.last_name} 
           </StyledText>
         </StyledBox>

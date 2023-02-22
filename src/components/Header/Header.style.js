@@ -36,12 +36,12 @@ export const ItemLink = styled(NavLink)`
   font-size: 16px;
   line-height: 144.4%;
   text-decoration: none;
-  color: #b6b6b6;
+  color: ${(props) => props.color};
   &.active {
-    color: #0d0d0d;
+    color: ${(props) => props.active};
   }
   &:hover {
-    color: #0d0d0d;
+    color: ${(props) => props.active};
   }
 `;
 
@@ -61,8 +61,16 @@ export const DropLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
   text-decoration: none;
-  color: #000000;
+  color: ${(props) => props.color};
   &:hover {
-    color: #000000;
+    color: ${(props) => props.color};
+  }
+`;
+
+
+export const DropItem = styled.li`
+
+  &:hover {
+    background-color: transparent;
   }
 `;

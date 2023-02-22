@@ -37,7 +37,7 @@ export const SearchBox = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1030px;
-  background-color: #ffffff;
+  background-color:  ${(props) => props.color};
   box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 29px 73px 29px;
@@ -59,7 +59,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: rgba(13, 13, 13, 0.3);
-background-color: #F5F5F5;
+background-color: ${(props) => props.color};
 border-radius: 15px;
 border: none;
 outline: none;

@@ -16,8 +16,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Hero.css';
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 export const HeroCarousel = ({ setCategoryCard }) => {
+  const theme = useSelector((state) => state.mode.theme);
 
   const inpRef = useRef();
 
@@ -75,9 +77,10 @@ export const HeroCarousel = ({ setCategoryCard }) => {
           </HeroItem>
         </Slider>
       </HeroList>
-      <SearchBox>
+
+      <SearchBox color={theme ? '#191919' : '#fff'} >
         <SearchTitle>Qidirish</SearchTitle>
-        <SearchInp ref={inpRef}  placeholder="Adiblar, kitoblar, audiolar, maqolalar..." type="text" />
+        <SearchInp color={theme ? '#404040' : '#F5F5F5'} ref={inpRef}  placeholder="Adiblar, kitoblar, audiolar, maqolalar..." type="text" />
         <SearchBtn onClick={(evt) => handleSearch(evt)} image={Search} >Izlash</SearchBtn>
       </SearchBox>
     </HeroContent>

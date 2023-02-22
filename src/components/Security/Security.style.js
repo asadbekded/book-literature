@@ -16,7 +16,7 @@ export const FormTitle = styled.h2`
 font-weight: 500;
 font-size: 18px;
 line-height: 27px;
-color: #212121;
+color:  ${(props) => props.color};
 margin: 0px;
 margin-bottom: 20px;
 `;
@@ -29,7 +29,7 @@ export const FormLabel = styled.label`
 font-weight: 400;
 font-size: 13px;
 line-height: 20px;
-color: #464E5F;
+color:  ${(props) => props.color};
 margin-bottom: 7px;
 `;
 

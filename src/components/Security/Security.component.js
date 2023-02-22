@@ -15,6 +15,7 @@ import axios from "axios";
 export const Security = () => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.token.token);
+  const theme = useSelector((state) => state.mode.theme);
 
   const emailRef = useRef();
   const pasRef = useRef();
@@ -24,17 +25,17 @@ export const Security = () => {
     evt.preventDefault();
 
     axios
-      .put('http://localhost:5000/user/secutiry', {
-        data: {
+      .put('http://localhost:5000/user/security', 
+        {
           email: emailRef.current.value,
           currentPassword: pasRef.current.value,
           newPassword: newRef.current.value,
         },
-        headers: {
+        {headers: {
           Authorization: token,
           "Content-Type": "application/json",
-        },
-      })
+        }}
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -42,9 +43,9 @@ export const Security = () => {
   return (
     <ProfileContent>
       <ProfileForm onSubmit={handleSecurity}>
-        <FormTitle>Change Or Recover Your Password:</FormTitle>
+        <FormTitle color={theme ? '#fff' : '#212121'} >Change Or Recover Your Password:</FormTitle>
         <FormInpBox>
-          <FormLabel htmlFor="exampleInputEmail1">Email</FormLabel>
+          <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputEmail1">Email</FormLabel>
           <FormInp
             ref={emailRef}
             defaultValue={user.email}
@@ -55,7 +56,7 @@ export const Security = () => {
         </FormInpBox>
 
         <FormInpBox>
-          <FormLabel htmlFor="exampleInputPas1">Current password</FormLabel>
+          <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputPas1">Current password</FormLabel>
           <FormInp
             ref={pasRef}
             defaultValue={user.password}
@@ -66,7 +67,7 @@ export const Security = () => {
         </FormInpBox>
 
         <FormInpBox>
-          <FormLabel htmlFor="exampleInputNew1">New Password</FormLabel>
+          <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputNew1">New Password</FormLabel>
           <FormInp ref={newRef} type="password" id="exampleInputNew1" />
           <ForBox>Please enter your new password.</ForBox>
         </FormInpBox>

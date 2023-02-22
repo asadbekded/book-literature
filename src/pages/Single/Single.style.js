@@ -32,7 +32,7 @@ export const StyledText = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: rgba(13, 13, 13, 0.8);
+  color: ${(props) => props.color};
   margin: 0px;
   margin-bottom: 44px;
 `;
@@ -67,7 +67,7 @@ export const DataText = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  color: rgba(13, 13, 13, 0.6);
+  color: ${(props) => props.color};
 `;
 
 export const StyledList = styled.ul`
@@ -111,7 +111,7 @@ export const ListTitle = styled.h3`
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #000000;
+  color: ${(props) => props.color};
   margin: 0px;
   margin-bottom: 6px;
 `;
@@ -120,7 +120,7 @@ export const ListText = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: rgba(0, 0, 0, 0.6);
+  color: ${(props) => props.color};
   margin: 0px;
 `;
 
@@ -143,9 +143,9 @@ export const CarLink = styled(Link)`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #0d0d0d;
+  color: ${(props) => props.color};
   text-decoration: none;
   &:hover{
-    color: #0d0d0d;
+    color: ${(props) => props.color};
   }
 `;

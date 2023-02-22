@@ -7,7 +7,6 @@ export const Home = () => {
 
   const [categoryCard, setCategoryCard] = useState([]);
 
-
   return (
     <>
       <Header />

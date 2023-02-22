@@ -23,6 +23,7 @@ import axios from "axios";
 export const MyProfile = () => {
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.token.token);
+  const theme = useSelector((state) => state.mode.theme);
 
   const firstRef = useRef();
   const lastRef = useRef();
@@ -65,16 +66,16 @@ export const MyProfile = () => {
               name="file"
               onChange={(evt) => setImage(evt.target.files[0])}
             />
-            <ImageInpBox>
+            <ImageInpBox color={theme ? '#161616' : '#f8f8f8'}>
               <BsCamera size={35} color="#464E5F" />
             </ImageInpBox>
           </ProfileImageBox>
         </ImageContent>
 
         <FormBox>
-          <FormTitle>My profile</FormTitle>
+          <FormTitle color={theme ? '#DEDEDE' : '#212121'} >My profile</FormTitle>
           <FormInpBox>
-            <FormLabel htmlFor="exampleInputFirst1">First name</FormLabel>
+            <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputFirst1">First name</FormLabel>
             <FormInp
               ref={firstRef}
               defaultValue={user.first_name}
@@ -85,7 +86,7 @@ export const MyProfile = () => {
           </FormInpBox>
 
           <FormInpBox>
-            <FormLabel htmlFor="exampleInputLast1">Last Name</FormLabel>
+            <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputLast1">Last Name</FormLabel>
             <FormInp
               ref={lastRef}
               defaultValue={user.last_name}
@@ -96,7 +97,7 @@ export const MyProfile = () => {
           </FormInpBox>
 
           <FormInpBox>
-            <FormLabel htmlFor="exampleInputPhone1">Phone</FormLabel>
+            <FormLabel color={theme ? '#F3F6F9' : '#464E5F'} htmlFor="exampleInputPhone1">Phone</FormLabel>
             <FormInp
               ref={phoneRef}
               defaultValue={user.phone}

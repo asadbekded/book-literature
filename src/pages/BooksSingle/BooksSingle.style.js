@@ -40,7 +40,7 @@ font-weight: 400;
 font-size: 20px;
 line-height: 30px;
 margin: 0px;
-color: rgba(13, 13, 13, 0.6);
+color: ${(props) => props.color};
 `
 
 export const PageStr = styled.strong`
@@ -48,7 +48,7 @@ font-weight: 400;
 font-size: 20px;
 line-height: 30px;
 margin: 0px;
-color: #0D0D0D;
+color: ${(props) => props.color};
 `
 
 export const DescriptionBox = styled.div`
@@ -78,7 +78,7 @@ export const DescriptionText = styled.p`
 font-weight: 400;
 font-size: 16px;
 line-height: 150%;
-color: rgba(13, 13, 13, 0.8);
+color: ${(props) => props.color};
 `
 
 
@@ -101,10 +101,10 @@ export const CarLink = styled(Link)`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #0d0d0d;
+  color: ${(props) => props.color};
   text-decoration: none;
   &:hover{
-    color: #0d0d0d;
+    color: ${(props) => props.color};
   }
 `;
 
